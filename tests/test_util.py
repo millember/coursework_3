@@ -157,7 +157,7 @@ def usually_data_sorted():
 
 
 def test_operation_json(usually_data):
-    assert isinstance(util.operation_json(), list) == isinstance(usually_data, list)
+    assert isinstance(util.operation_json("../data_operation/operations.json"), list) == isinstance(usually_data, list)
 
 
 def test_edit_operations(usually_data):

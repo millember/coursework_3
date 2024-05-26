@@ -2,8 +2,8 @@ import json
 from pathlib import Path
 
 
-def operation_json() -> list:
-    path = Path("../data_operation/operations.json")
+def operation_json(road):
+    path = Path(road)
     with path.open("r", encoding="utf-8") as file:
         content = file.read()
         data = json.loads(content)
@@ -25,5 +25,3 @@ def sort_operations(data: list) -> list:
 
 def last_operation(data: list, number: int) -> list:
     return [x for x in data[0: number + 1] if x["state"] == "EXECUTED"]
-
-
