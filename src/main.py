@@ -24,5 +24,5 @@ def output(name):
 
 
 if __name__ == "__main__":
-    out = output(main(1))
+    out = output(main(5))
     print('\n'.join(out))
