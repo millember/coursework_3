@@ -1,4 +1,4 @@
-from src.main import main
+from src.main import main, output
 from src.operation import Operation
 
 
@@ -65,3 +65,8 @@ def test_main():
             where="Счет 35421428450077339637",
         ),
     ]
+
+
+def test_output():
+    assert output(
+        main(1)) == ['07.12.2019 Перевод организации \nVisa Classic 2842 87** **** 9012 -> Счет **3655\n48150.39 USD\n']
