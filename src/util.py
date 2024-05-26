@@ -11,7 +11,6 @@ def operation_json() -> list:
 
 
 def from_operations(data: list) -> list:
-    """Returns edited list of operations."""
     list_from = [x for x in data if x.get("from")]
     for x in list_from:
         x['where'] = x.pop('from')
@@ -19,7 +18,12 @@ def from_operations(data: list) -> list:
 
 
 def sort_operations(data: list) -> list:
-    """Returns sorted list of operations by data."""
     list_from = [x for x in data if x.get("date")]
     list_sorted = sorted(list_from, key=lambda x: x["date"], reverse=True)
     return list_sorted
+
+
+def last_operation(data: list, number: int) -> list:
+    return [x for x in data[0: number + 1] if x["state"] == "EXECUTED"]
+
+
