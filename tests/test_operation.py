@@ -136,3 +136,21 @@ def test_identity(example_data):
     operation_1 = example_data
     operation_2 = example_data
     assert operation_1 is operation_2
+
+
+def test_date(list_of_examples):
+    operation = Operation.from_dict(list_of_examples)
+    date_operation = operation[0]
+    assert date_operation.edit_date(date_operation.date) == "26.08.2019"
+
+
+def test_card(list_of_examples):
+    operation = Operation.from_dict(list_of_examples)
+    date_operation = operation[0]
+    assert date_operation.hide_card_numbers(date_operation.where) == "Maestro 1596 83** **** 5199"
+
+
+def test_account(list_of_examples):
+    operation = Operation.from_dict(list_of_examples)
+    date_operation = operation[0]
+    assert date_operation.hide_account_numbers(date_operation.to) == "Счет **9589"

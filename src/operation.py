@@ -26,7 +26,7 @@ class Operation:
         if come_from:
             account_info = "".join([x for x in self.where if not x.isnumeric()])
             card_nums = "".join([x for x in self.where if x.isnumeric()])
-            return f"{account_info} {card_nums[:4]} {card_nums[6:8]}** **** {card_nums[-4:]}"
+            return f"{account_info}{card_nums[:4]} {card_nums[4:6]}** **** {card_nums[-4:]}"
 
     def hide_account_numbers(self, to: str) -> str:
         """Returns string with hidden account numbers."""
