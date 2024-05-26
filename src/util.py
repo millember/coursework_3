@@ -10,7 +10,7 @@ def operation_json() -> list:
     return data
 
 
-def edit_operations(data: list) -> list:
+def from_operations(data: list) -> list:
     """Returns edited list of operations."""
     list_from = [x for x in data if x.get("from")]
     for x in list_from:
@@ -18,4 +18,8 @@ def edit_operations(data: list) -> list:
     return list_from
 
 
-print(edit_operations(operation_json()))
+def sort_operations(data: list) -> list:
+    """Returns sorted list of operations by data."""
+    list_from = [x for x in data if x.get("date")]
+    list_sorted = sorted(list_from, key=lambda x: x["date"], reverse=True)
+    return list_sorted
